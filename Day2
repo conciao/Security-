@@ -1,0 +1,159 @@
+Sh ip int brief
+sh vlan brief
+sh mac address-table 
+"BOSS, OFFICERS-Seniors:"
+http://ipofLinux/otrs/index.pl
+http://208.8.8.144/otrs/index.pl
+	OTRS - FREE
+		root@localhost
+		C1sc0123
+
+non-officers,private
+http://208.8.8.144/otrs/customer.pl
+	User: root
+	Pass: C1sc0123
+
+#NIST Framework
+#Identify
+CMDB- Create inventory of all assets of the company
+	-Computer
+	-Hardware
+	-Location
+	-Network
+	-Software
+
+#Protect- 
+	#Implement Access Control and Encryption
+		!Change Management
+Knowledge Management (FAQ)
+	1. Category Management
+	2. New FAQ
+Cloud Service Router
+	csr1000v-universalk9.17.03.01a (VOIP Features)
+		UTM-1
+			user: admin
+			pass: pass
+		#Github: Day4f-Dec12cyBerSEC.txt
+			How to configure firewall Line 51-72
+				-Go to FAQ first for record
+			-Copy and paste the codes from github
+			-Edit the 3 network 
+					-NAT,Custom v2, Custom v3
+			-https://192.168.102.11/webui/
+				admin, pass
+#DETECT
+
+FIREWALL#
+-https://192.168.102.11/webui/
+	admin, pass
+-Configure>Security>Threat Defense
+-Add tickets
+
+#RECOVER
+4 Standards
+	-NIST Cybersecurity Framework (ICT)
+	-CIS Controls
+	-ISO/IEC 27001 - commonly use
+	-Company policy
+http://208.8.8.144:8069/
+	itil@rivanschool.com
+	C1sc0123
+1. Functionality
+2. Effectiveness
+3. Assurance
+4. Cost-Benefit	
+
+Security Control Categories
+1.Technical
+2.Operational
+3. Managerial
+
+Configure SecureCRT
+
+Configure CCTV
+-Connected to port 6 of core switch
+-Copy line 94-132
+config t
+vlan 10
+   name WIFIVLAN
+vlan 50
+   name PHYSICALCONTROL
+vlan 69
+   name UPPERMGMT
+vlan 70
+    name ACCOUNTING
+vlan 71
+    name HR
+vlan 100
+   name VOICEVLAN
+Int Fa 0/2
+  switchport mode access
+  switchport access vlan 10  
+Int Fa 0/4
+  switchport mode access
+  switchport access vlan 10
+Int Fa 0/6
+  switchport mode access
+  switchport access vlan 50  
+Int Fa 0/8
+  switchport mode access
+  switchport access vlan 50    
+Int Fa 0/3
+  switchport mode access
+  switchport access vlan 100     
+Int Fa 0/5
+  switchport mode access  
+  switchport voice vlan 100
+  mls qos trust device cisco-phone 
+  switchport access vlan 1
+Int Fa 0/7
+  switchport mode access
+  switchport voice vlan 100 
+  mls qos trust device cisco-phone 
+ switchport access vlan 1
+ end
+
+>sh vlan brief
+>sh power inline
+!NOTE CAMERA NEED MAC fix ip address
+
+config t
+ip routing
+ip dhcp pool CAMERA6
+host 10.71.50.6 255.255.255.0
+client-identifier 001a.0709.c652
+########################################################
+#Routing of CCTV
+open cmd
+route add 10.71.50.0 mask 255.255.255.0 10.71.1.4
+ping the camera: 10.71.50.6
+http://10.71.50.8/#_motion
+#######################################################
+#Deter
+cmd> route print
+##############################
+######THIS IS A MILITARYCORE##
+####NETWORK SWITCH,YOU ARE####
+####YOUR IP ADDRESS IS LOGGED#
+##AND MONITORED, BEWARE!!#####
+#REPUBLIC ACT 8484############
+##############################
+
+SecureCRT>CONF T
+COREbaba-71(config)#BANNER MOTD @
+Enter TEXT message.  End with the character '@'.
+##############################
+######THIS IS A MILITARYCORE##
+####NETWORK SWITCH,YOU ARE####
+####YOUR IP ADDRESS IS LOGGED#
+##AND MONITORED, BEWARE!!#####
+#REPUBLIC ACT 8484############
+##############################
+@
+
+###########################################################################
+What is a perfect SCAM
+1. Have dns domain
+2. Have web app/web site/android app
+3. business email
+	
