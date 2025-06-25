@@ -1,0 +1,67 @@
+=======SECTION 4 - Implement Identity and Access management
+	SETUP AZURE AD
+		-remove all dns
+		-disable other WAN
+		-disable ipv6
+		-ipv4 properties >advance>dns>secureplus71
+		-add active directory domain service
+	
+=======Task2: Connect all Cisco Devices to AzureAD:
+	AzureAD: type all cisco devices:
+Config t
+AAA new-model
+userbane admin privilege 15 secret pass
+radius-server host 10.m.1.8 key keykeymo
+ip radius source-interface vlan 1
+AAA authorization exec default grou radius
+AAA authentication login default group radius local
+line vty 0 14
+login authentication default
+
+======Security Task 3: Post/after intall Checklist:
+check1: eventvwr.msc	> check logs
+	-Check errors (Less error better)
+check2: DNS  > secplusM.com
+check3: IP Address: ipconfig
+	- !!!!open cmd > nbtstat -n
+	-check open ports
+
+========Task3: "Least Privilege Principle Always/Zero Trust" 
+1. super strict >> slowly luwag
+2. super luwag << slowly strict
+#$#############################################
+
+Add office
+	your physical network must equal AD Network
+
+SOC : user: ikaw , he
+	globalgroup: socgroup
+HRD : user: ac, kc
+	globalgroup: hrdgroup
+MIS : user: lj,sc
+	globalgroup: misgroup
+
+tasking##: 
+#install ACTIVE DIRECTORY DOMAIN SERVICES
+ACTG: user: mr,ml
+	globalgroup: acgroup
+1.grouppolicy: No control panel, noNetwork, no cmd, no usb removable, can use 'RUN'
+2.make folder: "ACTonly" give access to: acgroup r/ex
+
+########TASK 4: Least priviledge Principle: laki sa hirap
+>>>GroupPolicy (default) "ComConfig:Policies:ws:ss"
+	-password policy
+	-accountlockoutpolicy
+	-auditpolicy
+
+208.67.220.123 "
+
+#############SECURE ENTERPRISE NETWORK ARCHITECTURE
+#install ACTIVE DIRECTORY CERTIFICATE SERVICES
+iEEE 802.1x
+Wireless IEEE 802.1X
+
+#####ATTACKS
+-sqlinjection
+-honeypot
+-yersinia
